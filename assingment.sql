@@ -1,7 +1,10 @@
 create schema Assignment;
 use Assignment;
-/* 1 QUESTION*/
-/*table bajaj1 */ /* and in the same way i have created all six tables*/
+
+/* 1 QUESTION* 
+Create a new table named 'bajaj1' containing the date, 
+close price, 20 Day MA and 50 Day MA. (This has to be done for all 6 stocks) */
+
 create table bajaj1
 select Date,`Close Price`,
  avg(`Close Price`) over(rows 19 preceding) as `20 Day MA`,
@@ -80,7 +83,8 @@ row_number() over() as day from bajaj1
 order by day asc)tbl;
 
 
- /* 4 QUESTION */
+ /* 4 QUESTION that takes the date as input and returns the signal for 
+ that particular day (Buy/Sell/Hold) for the Bajaj stock. */
  
 delimiter $$
 drop function if exists date_signal $$
